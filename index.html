@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrazione e Login</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="container" id="registrazione">
+        <h2>Registrazione</h2>
+        <form action="/register" method="POST">
+            <input type="hidden" name="register" value="1">
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" required><br><br>
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required><br><br>
+            <input type="submit" value="Registrati">
+        </form>
+        <div class="buttons">
+            <button onclick="rimuoviForm('login')">Vai al Login</button>
+            <button onclick="rimuoviNote()">Aiuto</button>
+        </div>
+    </div>
+
+    <div class="container" id="login">
+        <h2>Login</h2>
+        <form action="/login" method="POST">
+            <input type="hidden" name="login" value="1">
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" required><br><br>
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required><br><br>
+            <label for="game">Choose Game:</label>
+            <input type="radio" id="snake-login" name="game" value="SnakeGioco/snake.html">
+            <label class="radio-label" for="snake-login">SNAKE</label>
+            <input type="radio" id="tris-login" name="game" value="TrisGioco/tris.html">
+            <label class="radio-label" for="tris-login">TRIS</label>
+            <input type="radio" id="canvas-login" name="game" value="CanvasGioco/canvas.html">
+            <label class="radio-label" for="canvas-login">CANVAS</label>
+            <input type="submit" value="Login">
+        </form>
+        <div class="buttons">
+            <button onclick="rimuoviForm('registrazione')">Vai alla Registrazione</button>
+            <button onclick="rimuoviNote()">Aiuto</button>
+        </div>
+    </div>
+    
+    <div id="help-note">
+        <p>Login e Registrazione completa + Accessibilità a 3 giochi</p>
+        <button id="remove" onclick="rimuoviNote()">Chiudi</button>
+    </div>
+    
+    <script src="script.js"></script>
+
+</body>
+</html>
