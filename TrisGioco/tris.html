@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body id="all2">
+  <div id="note">
+  <button id="closeNote" onclick="closeNote()"> close </button>
+  <ol> NOTE: </ol>
+    <li> Per la realizzazione del programma, non ho usufruito degli array ma dell'utilizzo di più classi che verificano la vittoria o pareggio. Inoltre, quando si finisce la partita, l'utente deve ricliccare l'avversario che vuole sfidare. (ES: se finissse la partita e si volesse risfidare il bot intelligente, dovresti cliccare (più volte per sicurezza) il bottone CPU+) </li>
+    <li> RESET: resetta la partita di tris ma non i conteggi delle vittore/pareggi/partite </li>
+    <li> RESET ALL: resetta ogni valore presente all'interno del sito. </li>
+    <li> MENU: Ritorna al menu principale </li>
+    <li> Friends: Partita amichevole con un amico. </li>
+    <li> CPU: Bot non intelligente che mette la risposta appena trova una casella libera. </li>
+    <li> CPU+: Bot intelligente che riesce a bloccare ogni tentativo di vittoria, inoltre può fare anche tris se lo vede. Infine, se le possibilità sopracitate non compaiono all'interno dell'algoritmo, il bot metterà il cerchio come la CPU normale quindi a caso.
+    </li>
+    <li>Per specificare, seguendo la teoria dei giochi, colui che comincia per secondo in una partita di tris deve sempre mirarare a pareggiare; di conseguenza ho seguito questa logica per il bot intelligente   
+    </li> 
+</div>
+
+  <div id="social"> 
+    <button id="closeCredit" onclick="closeCredit()"> close </button>
+    <ol> Credits: </ol>
+      <li> Sviluppatore: Zhang Ting Wei </li>
+      <li> Algoritmo: Zhang Ting Wei </li>
+      <li> Grafico: Zhang Ting Wei </li>
+      <li> Director: Zhang Ting Wei </li>
+      <li> Thinker: Zhang Ting Wei </li>
+      <li> YOUTUBE: @ZhangOnTop </li>
+      <li> INSTAGRAM: @ZhangOnTop </li>
+      <li> TIKTOK: @ZhangOnTop </li>
+      <li> TWITTER: @ZhangOnTop </li>
+      <li> REDDIT: @ZhangOnTop </li>
+      <li> In collaborazione con: Zhang Ting Wei (me stesso)</li>
+  </div>
+  
+  <div id="tutto">
+  <div id="grid-container">
+    <div class="grid-item1"> 
+      <h1> TRIS </h1>
+    </div>
+    <div class="grid-item2"> 
+      <button id="play" onclick="gamestart()"> GIOCA </button>
+    </div>
+    <div class="grid-item3">
+      <button id="friend" onclick="friend()" > Friend </button> 
+    </div>
+    <div class="grid-item4">
+      <button id="cpu" onclick="cpu1()" > CPU </button>
+    </div>
+    <div class="grid-item5">
+      <button id="cpuplus" onclick="cpuPlus1()" > CPU+</button>
+    </div>
+    <div class="grid-item6">
+      <button id="note1" onclick="notes()"> Note </button>
+    </div>
+    <div class="grid-item7">
+      <div id="prova3">
+      <h1 id="mode1"> modalità: </h1>
+      <h1 id="mode2"> Friend </h1>
+      </div>
+    </div>
+    <div class="grid-item9">
+      <div id="prova4">
+      <button id="logoutButton">Logout</button>
+      </div>
+    </div>
+    <div class="grid-item8">
+      <div id="prova">
+      <h1 id="cx"> Numero vittore x: </h1>
+      <h1 id="cx1">0</h1>
+      <br>
+      <h1 id="co"> Numero vittore o: </h1>
+      <h1 id="co1">0</h1>
+      <h1 id="cp"> Numero pareggi: </h1> <h1 id="cp1">0</h1> <br>
+      <h1 id="all"> Partite totali: </h1> <h1 id="all1">0</h1>
+    </div>
+    </div>
+    <div class="grid-item10"> 
+      <button id="rstAll" onclick="resetAll()" > Reset All </button>
+    </div>
+    <div class="grid-item11"> 
+      <button id="credits" onclick="crediti()"> Credits </button>
+    </div>
+  </div>
+  </div>
+
+  <div id="tris0">
+    <div id="testo1">
+    <center> <h1 id="chat"> </h1> </center>
+    <h1 id="text1">Prossimo Turno: </h1>
+    <h1 id="ris" value="X">X</h1>
+    <br>
+    <h1 id="text2">Turni Passati: </h1>
+    <h1 id="conta">0</h1>
+    </div>
+    <br>
+    <div id="tris9">
+    <div id="tris">
+    <div id="tris2">
+    <button id="B1" class="o1 v1 d1" onclick="clickBot('B1')">/</button>
+    <button id="B2" class="o1 v2" onclick="clickBot('B2')">/</button>
+    <button id="B3" class="o1 v3 d2" onclick="clickBot('B3')">/</button>
+    <br>
+    <button id="B4" class="o2 v1" onclick="clickBot('B4')">/</button>
+    <button id="B5" class="o2 v2 d1 d2" onclick="clickBot('B5')">/</button>
+    <button id="B6" class="o2 v3" onclick="clickBot('B6')">/</button>
+    <br>
+    <button id="B7" class="o3 v1 d2" onclick="clickBot('B7')">/</button>
+    <button id="B8" class="o3 v2 d2" onclick="clickBot('B8')">/</button>
+    <button id="B9" class="o3 v3 d1" onclick="clickBot('B9')">/</button>
+    <br>
+    <button id="menu2" onclick="menu()" > MENU </button>
+    <button id="rst" onclick="reset()" > RESET </button>
+    </div>
+    </div>
+  </div>
+
+  </div>
+
+
+
+
+  
+  <script src="script.js"></script>
+
+
+  <script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer></script> 
+</body>
+
+</html>
