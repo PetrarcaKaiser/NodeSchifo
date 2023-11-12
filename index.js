@@ -11,7 +11,7 @@ const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '', 
-  database: '5ai20' 
+  database: 'petrarca' 
 });
 
 db.connect((err) => {
@@ -27,6 +27,19 @@ db.connect((err) => {
   });
 });
 
+// Serve the initial login/registration page
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+});
+
+app.get('/style.css', (req, res) => {
+    res.sendFile('style.css', {root: __dirname});
+});
+
+app.get('/script.js', (req, res) => {
+    res.sendFile('script.js', {root: __dirname});
+});
+
 // Registrazione
 app.post('/register', (req, res) => {
     const { email, nickname, password } = req.body;
@@ -40,35 +53,43 @@ app.post('/register', (req, res) => {
     });
 });
 
+// Login and redirect to the chosen game
 app.post('/login', (req, res) => {
-    const { email, password } = req.body;
+    const { email, password, redirectOption } = req.body;
     const selectQuery = "SELECT * FROM users WHERE email = ? AND password = ?";
+    
     db.query(selectQuery, [email, password], (err, result) => {
         if (err) {
             return console.error(err.message);
         }
+
         if (result.length > 0) {
             const nickname = result[0].nickname;
-            res.send(`Benvenuto ${nickname}!`);
+
+            // Serve specific game files based on user's choice
+            if (redirectOption === 'tris') {
+                res.sendFile('TrisGioco/Tris.html', { root: __dirname });
+            } else if (redirectOption === 'canvas') {
+                res.sendFile('CanvasGioco/Canvas.html', { root: __dirname });
+            } else if (redirectOption === 'snake') {
+                res.sendFile('SnakeGioco/Snake.html', { root: __dirname });
+            } else {
+                res.send(`Benvenuto ${nickname}!`);
+            }
         } else {
             res.send('Credenziali errate. Riprova!');
         }
     });
 });
 
-app.use(express.static(__dirname + 'public'))
+// Serve static files for Tris
+app.use('/TrisGioco', express.static(__dirname + '/TrisGioco'));
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
-});
+// Serve static files for Canvas
+app.use('/CanvasGioco', express.static(__dirname + '/CanvasGioco'));
 
-app.get('/style.css', (req, res) => {
-    res.sendFile('style.css', {root: __dirname});
-});
-
-app.get('/script.js', (req, res) => {
-    res.sendFile('script.js', {root: __dirname});
-});
+// Serve static files for Snake
+app.use('/SnakeGioco', express.static(__dirname + '/SnakeGioco'));
 
 app.listen(PORT, () => {
     console.log(`Server avviato su http://localhost:${PORT}`);
