@@ -5,68 +5,71 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <div class="container" id="container">
-        <div class="form-container sign-up-container">
-            <form action="/register" method="post">
-                <h1>Registrazione</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <span>or use your email for registration</span>
-                <input type="text" name="name" placeholder="Name" />
-                <input type="email" name="email" placeholder="Email" />
-                <input type="password" name="password" placeholder="Password" />
-                <button type="submit">Sign Up</button>
-            </form>
-        </div>
-        <div class="form-container sign-in-container">
-            <form action="/login" method="post">
-                <h1>Login</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <span>or use your account</span>
-                <input type="text" name="name" placeholder="Name" />
-                <input type="email" name="email" placeholder="Email" />
-                <input type="password" name="password" placeholder="Password" />
-                <input type="radio" id="snake-login" name="redirectOption" value="snake">
-                <label class="radio-label" for="snake-login">SNAKE</label>
-                <input type="radio" id="tris-login" name="redirectOption" value="tris">
-                <label class="radio-label" for="tris-login">TRIS</label>
-                <input type="radio" id="canvas-login" name="redirectOption" value="canvas">
-                <label class="radio-label" for="canvas-login">CANVAS</label>
-                <a href="#">Forgot your password?</a>
-                <button type="submit">Sign In</button>
-            </form>
-        </div>
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <h1>Benvenuto!</h1>
-                    <p>Inserisci le varie credenziali per registrarti nel sito</p>
-                    <button class="ghost" id="signIn">Sign In</button>
-                </div>
-                <div class="overlay-panel overlay-right">
-                    <h1>Hola!</h1>
-                    <p>Inserisci le tue credenziali e scegli un gioco</p>
-                    <button class="ghost" id="signUp">Sign Up</button>
+    <nav>
+        <a href="#first"><p>HOME</p></a>
+        <a href="#second"><p>ABOUT ME</p></a>
+        <a href="#third"><p>HELP</p></a>
+        <a href="#fourth"><p>ENTER</p></a>
+      </nav>
+       
+     <div class= 'container1'> 
+       <section id= 'first'>
+         <h1>Non so</h1>
+       </section>
+       
+       <section id= 'second'>
+         <h1>Cosa</h1>
+       </section>
+       
+      <section id= 'third'>
+        <h1>Mettere</h1>
+       </section>
+       
+      <section id= 'fourth'>
+        <div class="container" id="container">
+            <div class="form-container sign-up-container">
+                <form action="/register" method="post">
+                    <h1 class="title">Registrazione</h1>
+                    <input type="text" name="name" placeholder="Name" />
+                    <input type="email" name="email" placeholder="Email" />
+                    <input type="password" name="password" placeholder="Password" />
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form action="/login" method="post">
+                    <h1 class="title">Login</h1>
+                    <input type="text" name="name" placeholder="Name" />
+                    <input type="email" name="email" placeholder="Email" />
+                    <input type="password" name="password" placeholder="Password" />
+                    <input type="radio" id="snake-login" name="redirectOption" value="snake">
+                    <label class="radio-label" for="snake-login">SNAKE</label>
+                    <input type="radio" id="tris-login" name="redirectOption" value="tris">
+                    <label class="radio-label" for="tris-login">TRIS</label>
+                    <input type="radio" id="canvas-login" name="redirectOption" value="canvas">
+                    <label class="radio-label" for="canvas-login">CANVAS</label>
+                    <a href="#">Forgot your password?</a>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>Benvenuto!</h1>
+                        <p>Inserisci le varie credenziali per registrarti nel sito</p>
+                        <button class="ghost" id="signIn">Login</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Hola!</h1>
+                        <p>Inserisci le tue credenziali e scegli un gioco</p>
+                        <button class="ghost" id="signUp">Register</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+       </section>
+     </div>
     
-    <footer>
-        <p>
-            Created with <i class="fa fa-heart"></i> by
-            <a target="_blank" href="https://florin-pop.com">Florin Pop</a>
-            - Read how I created this and how you can join the challenge
-            <a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
-        </p>
-    </footer>
     
     <script src="script.js"></script>
 
