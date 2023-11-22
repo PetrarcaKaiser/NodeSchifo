@@ -42,23 +42,29 @@ app.get('/script.js', (req, res) => {
 app.post('/register', (req, res) => {
     const { email, nickname, password } = req.body;
 
-    if (!email || !email.includes('@')) {
-        return res.send('L\'indirizzo email non è valido');
-    }
-
-    if (!email || !nickname || !password) {
-        return res.send('Compila tutti i campi');
-    }
-
-    const insertQuery = "INSERT INTO users (email, nickname, password) VALUES (?, ?, ?)";
-    db.query(insertQuery, [email, nickname, password], (err, result) => {
+    // Verifica se l'email è già presente nel database
+    const checkEmailQuery = "SELECT * FROM users WHERE email = ?";
+    db.query(checkEmailQuery, [email], (err, result) => {
         if (err) {
             return console.log(err.message);
         }
-        console.log(`Utente registrato con l'ID: ${result.insertId}`);
-        res.redirect('/');
+
+        if (result.length > 0) {
+            return res.send('L\'email è già stata utilizzata. Scegli un\'altra email.');
+        }
+
+        // Se l'email non è presente, procedi con l'inserimento
+        const insertQuery = "INSERT INTO users (email, nickname, password) VALUES (?, ?, ?)";
+        db.query(insertQuery, [email, nickname, password], (err, result) => {
+            if (err) {
+                return console.log(err.message);
+            }
+            console.log(`Utente registrato con l'ID: ${result.insertId}`);
+            res.redirect('/');
+        });
     });
 });
+
 
 app.post('/login', (req, res) => {
     const { email, password, redirectOption } = req.body;
