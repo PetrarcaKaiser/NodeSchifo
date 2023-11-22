@@ -42,7 +42,6 @@ app.get('/script.js', (req, res) => {
 app.post('/register', (req, res) => {
     const { email, nickname, password } = req.body;
 
-    // Verifica se l'email è già presente nel database
     const checkEmailQuery = "SELECT * FROM users WHERE email = ?";
     db.query(checkEmailQuery, [email], (err, result) => {
         if (err) {
@@ -50,7 +49,7 @@ app.post('/register', (req, res) => {
         }
 
         if (result.length > 0) {
-            return res.send('L\'email è già stata utilizzata. Scegli un\'altra email.');
+            return ;
         }
 
         // Se l'email non è presente, procedi con l'inserimento
@@ -68,14 +67,6 @@ app.post('/register', (req, res) => {
 
 app.post('/login', (req, res) => {
     const { email, password, redirectOption } = req.body;
-
-    if (!email || !password || !redirectOption) {
-        return res.send('Compila tutti i campi');
-    }
-
-    if (!email.includes('@')) {
-        return res.send('L\'indirizzo email non è valido');
-    }
 
     const selectQuery = "SELECT * FROM users WHERE email = ? AND password = ?";
     
