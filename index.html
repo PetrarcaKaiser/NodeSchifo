@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>I Giochi di Petrarca</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="https://1.bp.blogspot.com/-eTYMZ1LxnUQ/XvjqX4DODVI/AAAAAAAGwxg/Lq1WLY41DXQ5yVv-nvz8WPDyVT0euU5ZACPcBGAsYHg/s1600/Portrait-of-Francesco-Petrarca.jpg" type="image/x-icon">
+</head>
+<body>
+        <div class="container" id="container">
+            <div class="form-container sign-up-container">
+                <form action="/register" method="post">
+                    <h1 class="title">Registrazione</h1>
+                    <input type="text" name="nickname" placeholder="Name" />
+                    <input type="email" name="email" placeholder="Email" />
+                    <input type="password" name="password" placeholder="Password" />
+                    <button type="submit">Register</button>
+                    <p id="messRegister"> </p>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form action="/login" method="post">
+                    <h1 class="title">Login</h1>
+                    <input type="email" name="email" placeholder="Email" />
+                    <input type="password" name="password" placeholder="Password" />
+                    <a href="#">Forgot your password?</a>
+                    <button type="submit">Login</button>
+                    <p id="messLogin"> </p>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>Benvenuto!</h1>
+                        <p>Inserisci le varie credenziali per registrarti nel sito</p>
+                        <button class="ghost" id="signIn">Login</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Hola!</h1>
+                        <p>Inserisci le tue credenziali e scegli un gioco</p>
+                        <button class="ghost" id="signUp">Register</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+    
+    <script src="script.js"></script>
+
+</body>
+</html>
